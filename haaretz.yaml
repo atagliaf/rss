@@ -1,0 +1,5 @@
+haaretz:
+  - latest: https://www.haaretz.com/srv/haaretz-latest-headlines
+  - israel: https://www.haaretz.com/srv/israel-news-rss
+  - us: https://www.haaretz.com/srv/u.s.-news-rss
+  - world-news: https://www.haaretz.com/srv/world-news-rss

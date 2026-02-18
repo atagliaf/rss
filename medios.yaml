@@ -1,0 +1,25 @@
+medios:
+  - nombre: clarin
+    pais: Argentina
+    feeds:
+      - url: https://www.clarin.com/rss/lo-ultimo/
+        poll: True
+      - url: https://www.clarin.com/rss/politica/
+        poll: True
+
+  - nombre: Pagina12
+    pais: Argentina
+    feeds:
+      - url: https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/el-pais/notas
+        poll: True
+      - url: https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/economia/notas
+        poll: False
+
+  - nombre: El Universal
+    pais: México
+    activo: False
+    feeds:
+      - url: https://eluniversal.com.mx/rss/principal.xml
+        poll: False
+      - url: https://eluniversal.com.mx/rss/cdmx.xml
+        poll: False

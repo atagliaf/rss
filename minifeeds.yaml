@@ -1,0 +1,8 @@
+clarin:
+  - lo_ultimo:    https://www.clarin.com/rss/lo-ultimo/
+  - politica:     https://www.clarin.com/rss/politica/
+
+pagina12:
+  - el_pais:         https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/el-pais/notas
+  - economia:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/economia/notas
+

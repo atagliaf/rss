@@ -1,0 +1,86 @@
+clarin:
+  - lo_ultimo:    https://www.clarin.com/rss/lo-ultimo/
+  - politica:     https://www.clarin.com/rss/politica/
+  - mundo:        https://www.clarin.com/rss/mundo/
+  - sociedad:     https://www.clarin.com/rss/sociedad/
+  - policiales:   https://www.clarin.com/rss/policiales/
+  - ciudades:     https://www.clarin.com/rss/ciudades/
+  - opinion:      https://www.clarin.com/rss/opinion/
+  # - cartas_al_pais: https://www.clarin.com/rss/cartas_al_pais/ # no "description"
+  - cultura:      https://www.clarin.com/rss/cultura/
+  - rural:        https://www.clarin.com/rss/rural/
+  - economia:     https://www.clarin.com/rss/economia/
+  - tecnologia:   https://www.clarin.com/rss/tecnologia/
+
+pagina12:
+  - el_pais:         https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/el-pais/notas
+  - economia:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/economia/notas
+  - sociedad:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/sociedad/notas
+  - el_mundo:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/el-mundo/notas
+  - deportes:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/deportes/notas
+  - cultura:         https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/cultura-y-espectaculos/notas
+  - universidad:     https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/universidad/notas
+  - ciencia:         https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/ciencia/notas
+  - psicologia:      https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/psicologia/notas
+  - ajedrez:         https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/ajedrez/notas
+  #- la_ventana:      https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/la-ventana/notas
+  #- dialogos:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/dialogos/notas
+  #- hoy:             https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/hoy/notas
+  - plastica:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/plastica/notas
+  #- cartas_lectores: https://www.pagina12.com.ar/arc/outboundfeeds/rss/secciones/cartas-de-lectores/notas
+  - cash:            https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/cash/notas
+  - las_12:          https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/las12/notas
+  #- libero:          https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/libero/notas
+  #- m2:              https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/m2/notas
+  - no:              https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/no/notas
+  - radar:           https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/radar/notas
+  - radar_libros:    https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/radar-libros/notas
+  #- satira12:        https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/satira12/notas
+  - soy:             https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/soy/notas
+  #- turismo:         https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/turismo/notas
+
+izquierda_diario:
+  - portada:       https://www.laizquierdadiario.com/spip.php?page=backend&id_mot=12
+  - politica:      https://www.laizquierdadiario.com/spip.php?page=backend&id_mot=12
+  - internacional: https://www.laizquierdadiario.com/spip.php?page=backend&id_mot=14
+  - economia:      https://www.laizquierdadiario.com/spip.php?page=backend&id_mot=13
+
+infobae:
+  - tema1: https://www.infobae.com/arc/outboundfeeds/news-sitemap2/category/sociedad/
+  - tema2: https://www.infobae.com/arc/outboundfeeds/news-sitemap2/
+
+elpais:
+  - america:                 https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/america/portada
+  - internaional:            https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada
+  - argentina:               https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/argentina/portada
+  - ultimas_noticias:        https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ultimas-noticias/portada
+  - sociedad:                https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/sociedad/portada
+  - economia:                https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/espana/portada
+  - ciencia:                 https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ciencia/portada
+  - clima_medio_ambiente:    https://feeds.elpais.com/mrss-s/list/ep/site/elpais.com/section/clima-y-medio-ambiente
+  - educacion:               https://feeds.elpais.com/mrss-s/list/ep/site/elpais.com/section/educacion
+  - mexico:                  https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/mexico/portada
+  - colombia:                https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/america-colombia/portada
+
+
+#– mundo_obrero:
+#– sociedad:
+#– generos_sexualidades:
+#– juventud:
+#– cultura:
+#– deportes:
+#– medios:
+#– pueblos_originarios:
+#– parlamentaria:
+#– economia_internacional:
+#– educación:
+#– salud:
+#– ecologia_medioambiente:
+#– ciencia_tecnologia:
+#– musica:
+#– futbol:
+#– juventud_trabajadora:
+#– libertades_democraticas:
+#– la_caja_roja:
+#– foto:
+#– pts:
