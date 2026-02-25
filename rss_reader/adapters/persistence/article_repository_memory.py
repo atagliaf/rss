@@ -11,19 +11,19 @@ class MemoryArticleRepository(ArticleRepositoryPort):
     def __init__(self):
         self._articles: list[Article] = []
 
-    def save(self, article: Article) -> None:
+    def add(self, article: Article) -> None:
         self._articles.append(article)
 
-    def save_batch(self, articles: list[Article]) -> None:
+    def add_batch(self, articles: list[Article]) -> None:
         self._articles.extend(articles)
 
-    def find_by_keywords(self, keywords: list[str], medio: str | None = None, limit: int = 20) -> list[Article]:
+    def find_keywords(self, keywords: list[str], medio: str | None = None, limit: int = 20) -> list[Article]:
         result = []
         keywords_lower = [k.lower() for k in keywords]
         for a in self._articles:
             if medio and a.medio.lower() != medio.lower():
                 continue # si se indico 'medio', limitar a ése
-            texto = f"{(a.titulo or '')} {(a.descripcion or '')}".lower()
+            texto = f"{(a.titulo or '')} {(a.resumen or '')}".lower()
             if any(k in texto for k in keywords_lower):
                 result.append(a)
                 if len(result) >= limit:
@@ -34,6 +34,4 @@ class MemoryArticleRepository(ArticleRepositoryPort):
         self, query: str, medio: str | None = None, limit: int = 20
     ) -> list[Article]:
         # En memoria: simular con búsqueda por keywords del query
-        return self.find_by_keywords(
-            keywords=query.split(), medio=medio, limit=limit
-        )
+        return self.find_keywords(keywords=query.split(), medio=medio, limit=limit)

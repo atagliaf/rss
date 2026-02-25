@@ -17,17 +17,16 @@ class Feed:
     url: str
     medio: str
     last_poll: datetime | None = None
-    poll_freq: int = 3 * 60
-    active: bool = True
-
+    poll_freq: int = 4 * 60 # in minutes
+    active: bool = True     # inhibir polling automatico si False
 
 @dataclass
 class Article:
     titulo: str
-    descripcion: str | None
-    fecha_publicacion: datetime | None
-    fecha_polling: datetime | None
-    creador: str | None
+    resumen: str | None
+    pub_date: datetime | None
+    ingest_date: datetime | None
+    periodista: str | None
     link: str
     medio: str
     feed_url: str

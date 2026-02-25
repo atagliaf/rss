@@ -1,27 +1,17 @@
-from datetime import datetime
-
 from rss_reader.domain.entities import Article, Feed
-from rss_reader.domain.ports.article_repository_port import ArticleRepositoryPort
-from rss_reader.domain.ports.rss_reader_port import RssReaderPort
-from rss_reader.use_cases.dto import FeedSource
+from rss_reader.domain.ports.article_read_port import GetArticle
 
+class PollFeeds:
+    """Caso de uso: leer feeds RSS y obtener artículos. No persiste."""
 
-class PollFeed:
-    """Caso de uso: leer feeds RSS y persistir artículos."""
-
-    def __init__(self, rss_reader: RssReaderPort, article_repo: ArticleRepositoryPort):
+    def __init__(self, rss_reader: GetArticle):
         self.rss_reader = rss_reader
-        self.article_repo = article_repo
 
-    def execute(self, feeds: list[FeedSource]) -> list[Article]:
+    def poll(self, feeds: [Feed]) -> [Article]:
+        """Obtiene todos los artículos de los feeds. La persistencia con dedup es responsabilidad del framework."""
         all_articles = []
         for f in feeds:
-            feed = Feed(
-                url=f.url,
-                medio=f.medio,
-            )
-            articles = self.rss_reader.fetch(feed)
-            if articles:
-                self.article_repo.save_batch(articles)
-                all_articles.extend(articles)
+            feed = Feed(url=f.url, medio=f.medio)
+            articles = self.rss_reader.read(feed)
+            all_articles.extend(articles)
         return all_articles

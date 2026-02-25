@@ -124,11 +124,11 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
         else:
             self._helper_create_collection()
 
-    def save(self, article: Article) -> None:
+    def add(self, article: Article) -> None:
         properties = {
-            "content": article.titulo.lower() + " " + article.descripcion.lower(),
-            "publish_date": article.fecha_publicacion,
-            "poll_date": article.fecha_polling,
+            "content": article.titulo.lower() + " " + article.resumen.lower(),
+            "publish_date": article.pub_date,
+            "poll_date": article.ingest_date,
             "source": article.medio,
             "url": article.link,
             "raw": article.article_raw,
@@ -136,7 +136,7 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
 
         # Obtener la colección
         try:
-            collection = self.client.collections.get(self.collection_name)
+            collection = self.client.collections.poll(self.collection_name)
             result = collection.data.insert(properties=properties)
         except Exception as e:
             print(f"Error al agregar datos a collection weaviate '{self.collection_name}':\n{e}")
@@ -147,9 +147,9 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
         print(f"Artículo guardado con UUID: {result}")
         return
 
-    def save_batch(self, articles: list[Article]) -> None:
+    def add_batch(self, articles: list[Article]) -> None:
         for art in articles:
-            self.save(art)
+            self.add(art)
         return
 
     def seach_proximity(self, concepts: list[str], limit=10, certainty=0.6, source=None, avoid: list[str]|None = None, avoid_force: float|None=0.6):
@@ -167,10 +167,7 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
                 "force": avoid_force
             }
 
-        query_builder = self.client.query.get(
-            self.collection_name,
-            ["content"]
-        ).with_near_text(near_text_params).with_limit(limit)
+        query_builder = self.client.query.poll(self.collection_name).with_near_text(near_text_params).with_limit(limit)
 
         # Añadir filtro si se especifica fuente
         if source:
@@ -187,12 +184,12 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
         return []
 
 
-    def find_by_keywords(
+    def find_keywords(
         self, keywords: list[str], medio: str | None = None, limit: int = 20
     ) -> list[Article]:
         # TODO: query Weaviate con filtro por keywords
         if self._fallback:
-            return self._fallback.find_by_keywords(keywords, medio, limit)
+            return self._fallback.find_keywords(keywords, medio, limit)
         return self._simple_keyword_search(keywords, medio, limit)
 
     def find_similar(self, query: str, medio: str | None = None, limit: int = 20) -> list[Article]:
@@ -206,7 +203,7 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
         for a in self._articles:
             if medio and a.medio != medio:
                 continue
-            texto = f"{(a.titulo or '')} {(a.descripcion or '')}".lower()
+            texto = f"{(a.titulo or '')} {(a.resumen or '')}".lower()
             if any(k in texto for k in kw_lower):
                 result.append(a)
                 if len(result) >= limit:

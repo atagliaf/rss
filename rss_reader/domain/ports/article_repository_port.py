@@ -7,17 +7,17 @@ class ArticleRepositoryPort(ABC):
     """Puerto para persistencia de artículos (Weaviate, memoria, etc.)."""
 
     @abstractmethod
-    def save(self, article: Article) -> None:
+    def add(self, article: Article) -> None:
         """Guarda un artículo."""
         ...
 
     @abstractmethod
-    def save_batch(self, articles: list[Article]) -> None:
+    def add_batch(self, articles: list[Article]) -> None:
         """Guarda múltiples artículos (con embeddings para búsqueda semántica)."""
         ...
 
     @abstractmethod
-    def find_by_keywords(
+    def find_keywords(
         self, keywords: list[str], medio: str | None = None, limit: int = 20
     ) -> list[Article]:
         """Busca por palabras clave en título/descripción."""

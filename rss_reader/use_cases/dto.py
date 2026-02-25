@@ -5,14 +5,6 @@ El core los usa pero no sabe de YAML, HTTP, CLI.
 
 from dataclasses import dataclass
 
-
-@dataclass
-class FeedSource:
-    """Entrada de feed desde YAML: medio, url."""
-    medio: str
-    url: str
-    poll: bool = True
-
 @dataclass
 class MedioSource:
     """Entrada de medio desde YAML (opcional, con defaults)."""
