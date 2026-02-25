@@ -104,9 +104,8 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
     def __init__(self):
         try:
             self.client = weaviate.connect_to_local()
-
         except Exception as e:
-            print(f"Error conectandose a weaviate local: {e}")
+            print(f"Error conectandose a Weaviate local: {e}")
             traceback.print_exc()
             exit(1)
         if self.client.is_ready():
@@ -114,6 +113,7 @@ class WeaviateArticleRepository(ArticleRepositoryPort):
             # pprint(self.client.get_meta())
         else:
             print("Error de conexión")
+            traceback.print_exc()
             exit(1)
         print(f"weaviate version: {weaviate.__version__}")
 

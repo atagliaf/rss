@@ -10,7 +10,7 @@ class SearchNews:
 
     def execute(
         self,
-        medio: str | None = None,
+        medio: str | None = None,   # puede ser "str" o "None", por defecto es "None"
         keywords: list[str] | None = None,
         semantic_query: str | None = None,
         limit: int = 20,

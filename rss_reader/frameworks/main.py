@@ -78,14 +78,16 @@ def main():
     args = build_parser().parse_args()
     feeds = load_feeds(args.feeds)
 
+    # Wiring: persistencia y busqueda
+    repository = WeaviateArticleRepository()  # donde se persistiran
+    search_uc = SearchNews(repository)
+
     # Wiring: lectura noticias
     rss_reader = GetArticleRss()                # Creo lector de articulos RSS
     poll_uc = PollFeeds(rss_reader)             # Preparo lectura de todos los feed
     articles = poll_uc.poll(feeds)              # Leo todos todos los feeds
 
-    # Wiring: persistencia y busqueda
-    repository = WeaviateArticleRepository()  # donde se persistiran
-    search_uc = SearchNews(repository)
+
 
 
     # Persistir solo los nuevos (evitar duplicados por link)
