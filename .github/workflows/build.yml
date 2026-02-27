@@ -1,0 +1,28 @@
+name: Build and push Python app to ACR
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  AZURE_CONTAINER_REGISTRY: "micrpython21311.azurecr.io"
+  PROJECT_NAME: "rss_app"
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Azure Container Registry Login
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.AZURE_CONTAINER_REGISTRY }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
+    - name: Build and push Docker image
+      run: |
+        docker build . -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.PROJECT_NAME }}:${{ env.IMAGE_TAG }}
+        docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.PROJECT_NAME }}:${{ env.IMAGE_TAG }}
